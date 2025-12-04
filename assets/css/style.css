@@ -517,6 +517,7 @@ section {
     width: 100%;
 }
 /* Responsiveness */
+
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -528,14 +529,53 @@ section {
         margin-right: auto;
         width: 40%;
     }
+
+    /* --------------------------
+       NAVBAR MOBILE BOOST
+    ---------------------------*/
+
+    .navbar {
+        padding: 20px 24px;    /* più respiro */
+    }
+
+    .navbar img {
+        height: 70px;          /* logo più grande */
+    }
+
+    .nav-links {
+        gap: 22px;             /* più spazio tra i link */
+    }
+
+    .nav-links a {
+        font-size: 1.25rem;    /* testo più grande */
+        padding: 10px 0;       /* tappabile meglio */
+    }
+
+    .dropdown-menu {
+        top: 60px;             /* corretto per il logo più grande */
+    }
+
+    .dropdown-menu a {
+        font-size: 1.2rem;
+        padding: 12px 22px;
+    }
+
+    /* menu-item nel centro menu */
+    .menu-item {
+        font-size: 26px;       /* leggermente più grande rispetto a ora */
+    }
 }
 
 @media (max-width: 480px) {
     .menu-item {
         font-size: 20px;
     }
-}
 
+    /* Logo ancora più piccolo nei telefoni molto piccoli */
+    .navbar img {
+        height: 60px;
+    }
+}
 
 /* Gabriele Ciadamdiaro */
 /* >^..^< */
