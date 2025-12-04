@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2 style="margin-bottom:20px;">All You Can <span style="color:#ff5f2e;">EAT</span> cucina Italiana</h2>
                     <p>All you can eat di cucina italiana</p>
                     <p>Menù pranzo 10€</p>
-                    <button class="hero-btn" onclick="window.location.href='contatti.html'">Vai ai Menù</button>
+                    <button class="hero-btn" onclick="window.location.href='public/menu.html'">Vai ai Menù</button>
                 `;
 
                 if (slide == 2) heroText.innerHTML = `
@@ -149,5 +149,5 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* Gabriele Ciadamdiaro */
+/* Gabriele Ciadamidaro */
 /* >^..^< */

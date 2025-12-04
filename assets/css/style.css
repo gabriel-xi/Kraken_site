@@ -519,63 +519,135 @@ section {
 /* Responsiveness */
 
 @media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .footer-title::after {
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-    }
-
-    /* --------------------------
-       NAVBAR MOBILE BOOST
-    ---------------------------*/
+    /* -----------------------
+       NAVBAR MOBILE
+    ------------------------*/
 
     .navbar {
-        padding: 20px 24px;    /* più respiro */
+        padding: 14px 20px;
+        justify-content: center; /* centra logo */
     }
 
     .navbar img {
-        height: 70px;          /* logo più grande */
+        height: 70px; /* logo grande e leggibile */
     }
 
     .nav-links {
-        gap: 22px;             /* più spazio tra i link */
+        display: none; /* nascondiamo i link per ora */
     }
 
-    .nav-links a {
-        font-size: 1.25rem;    /* testo più grande */
-        padding: 10px 0;       /* tappabile meglio */
+
+    /* -----------------------
+       HERO TESTO MOBILE
+    ------------------------*/
+
+    .hero-text h1 {
+        font-size: 2.2rem;
     }
 
-    .dropdown-menu {
-        top: 60px;             /* corretto per il logo più grande */
+    .hero-text h2,
+    .hero-text h3 {
+        font-size: 1.3rem;
     }
 
-    .dropdown-menu a {
-        font-size: 1.2rem;
-        padding: 12px 22px;
+    .hero-text p {
+        font-size: 1rem;
     }
 
-    /* menu-item nel centro menu */
+    /* centrare il testo sempre meglio su mobile */
+    .hero-text.left,
+    .hero-text.right {
+        left: 50% !important;
+        right: unset !important;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+
+    /* -----------------------
+       CENTER MENU (3 bottoni)
+    ------------------------*/
+
+    .center-menu {
+        top: 78%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
     .menu-item {
-        font-size: 26px;       /* leggermente più grande rispetto a ora */
+        font-size: 22px;
+    }
+
+    .menu-item.active::before {
+        top: -10px;
+        width: 30px;
+    }
+
+
+    /* -----------------------
+       SLIDES MOBILE
+    ------------------------*/
+
+    .hero-slide {
+        background-size: cover;
+        background-position: top;
+    }
+
+
+    /* -----------------------
+       FOOTER MOBILE
+    ------------------------*/
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 180px;
+    }
+
+    .footer-title {
+        font-size: 1.2rem;
+    }
+
+    .footer-contacts ul {
+        font-size: 1rem;
+        line-height: 1.6;
     }
 }
 
 @media (max-width: 480px) {
-    .menu-item {
-        font-size: 20px;
-    }
 
-    /* Logo ancora più piccolo nei telefoni molto piccoli */
+    /* NAVBAR */
     .navbar img {
         height: 60px;
     }
+
+    /* HERO */
+    .hero-text h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-text h2,
+    .hero-text h3 {
+        font-size: 1.15rem;
+    }
+
+    /* MENU CENTRALE */
+    .menu-item {
+        font-size: 18px;
+    }
+
+    /* FOOTER */
+    .footer-logo img {
+        width: 150px;
+    }
 }
 
-/* Gabriele Ciadamdiaro */
+/* Gabriele Ciadamidaro */
 /* >^..^< */

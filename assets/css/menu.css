@@ -1,0 +1,327 @@
+/* --------------------------
+   PAGINA MENÙ INTERATTIVA
+---------------------------*/
+
+.menu-page {
+    padding-top: 120px; 
+    padding-bottom: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.menu-page-title {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+}
+
+.menu-page-subtitle {
+    text-align: center;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 24px;
+    justify-content: center;
+}
+
+.menu-card {
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform .25s ease, box-shadow .25s ease;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+}
+
+.menu-thumb {
+    width: 100%;
+    display: block;
+}
+
+.menu-card h3 {
+    padding: 12px;
+    text-align: center;
+}
+
+/* --------------------------
+   VIEWER FULLSCREEN
+---------------------------*/
+
+.menu-viewer {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.menu-viewer.visible {
+    display: flex;
+}
+
+.menu-viewer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+}
+
+.menu-viewer-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.menu-viewer-content img {
+    max-width: 65vw;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.75);
+}
+
+.menu-viewer-close {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.menu-viewer-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.menu-viewer-arrow.left { left: -60px; }
+.menu-viewer-arrow.right { right: -60px; }
+
+.menu-viewer-caption {
+    position: absolute;
+    bottom: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-viewer-caption h2 {
+    font-size: 1.2rem;
+}
+
+.menu-section-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+}
+
+.menu-section-title::before,
+.menu-section-title::after {
+    content: "";
+    height: 2px;
+    width: 80px;
+    background: #ff5f2e;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-section-title::before {
+    left: 10%;
+}
+
+.menu-section-title::after {
+    right: 10%;
+}
+
+.menu-slide-left {
+    animation: slideLeft 0.4s ease;
+}
+
+.menu-slide-right {
+    animation: slideRight 0.4s ease;
+}
+
+/* SFONDO DEDICATO PAGINA MENÙ */
+.menu-body .body-bg {
+    background-image: url("../../img/sfondi/menu.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+}
+
+/* Non ci serve il layer "next" sulla pagina menù */
+.menu-body .body-bg-next {
+    display: none;
+}
+
+/* ETICHETTE ARANCIONI — MATCH DIMENSIONI TITOLO */
+.tag {
+    display: inline-block;
+    color: #ff5f2e;
+    font-weight: 700;
+    font-size: inherit;   /* ← prende la dimensione dell'h2 */
+    margin-right: 10px;
+    letter-spacing: 0.5px;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.tag-orange { color: #ff5f2e; }
+
+/* Titolo delle sezioni */
+.menu-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 2rem;  /* ← dimensione principale */
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Rimuove linee */
+.menu-section-title::before,
+.menu-section-title::after {
+    display: none !important;
+}
+
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================
+   RESPONSIVE MOBILE (max 768px)
+============================ */
+
+@media (max-width: 768px) {
+
+    /* Titoli delle sezioni */
+    .menu-section-title {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 4px;
+        margin-top: 35px;
+    }
+
+    .tag {
+        font-size: 1.2rem; /* grande e leggibile */
+        margin-right: 0;
+    }
+
+    /* Griglia più semplice e più stretta */
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+        padding: 0 12px;
+    }
+
+    .menu-card {
+        max-width: 170px;
+        border-radius: 14px;
+    }
+
+    .menu-card h3 {
+        font-size: 1rem;
+    }
+
+    /* Viewer fullscreen (quando apri un menù) */
+    .menu-viewer-content img {
+        max-width: 90vw;
+        max-height: 70vh;
+        border-radius: 14px;
+    }
+
+    /* Frecce vicino all’immagine */
+    .menu-viewer-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .menu-viewer-arrow.left { left: 10px; }
+    .menu-viewer-arrow.right { right: 10px; }
+
+    /* Bottone chiudi al top */
+    .menu-viewer-close {
+        top: 5px;
+        right: 10px;
+        font-size: 2rem;
+    }
+}
+
+/* ============================
+   ULTRA MOBILE (max 480px)
+============================ */
+
+@media (max-width: 480px) {
+
+    .menu-section-title {
+        font-size: 1.4rem;
+    }
+
+    .tag {
+        font-size: 1rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .menu-card {
+        max-width: 150px;
+    }
+
+    .menu-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .menu-viewer-content img {
+        max-width: 92vw;
+        max-height: 60vh;
+    }
+}
+
+/* Gabriele Ciadamidaro */
+/* >^..^< */

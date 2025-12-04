@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Kraken Restaurant — I nostri menù</title>
+
+    <!-- STILE DELLA PAGINA -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/menu.css">
+</head>
+
+<body class="menu-body">
+
+    <div class="body-bg"></div>
+    <div class="body-bg-next"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="../index.html" class="navbar-logo">
+        <img src="../img/logo/logo_nobg.png" alt="Logo Kraken">
+</a>
+    </nav>
+
+    <!-- PAGINA MENÙ INTERATTIVA -->
+    <section class="menu-page">
+        <h2 class="menu-section-title">
+              I nostri
+            <span class="tag tag-orange">Menù</span>
+          
+        </h2>
+
+                <p class="menu-page-subtitle">Scorri tutte le proposte speciali del Kraken Restaurant</p>
+
+        <!-- ========================= -->
+        <!-- 🎄 SEZIONE SPECIALI -->
+        <!-- ========================= -->
+        <h2 class="menu-section-title">
+             Menù delle
+            <span class="tag tag-orange">festività</span>
+        </h2>
+        <div class="menu-grid">
+
+            <div class="menu-card" data-index="0">
+                <img src="../img/menu/speciali/natale-2025.png" class="menu-thumb">
+                <h3>Pranzo di Natale 2025</h3>
+            </div>
+
+            <div class="menu-card" data-index="1">
+                <img src="../img/menu/speciali/capodanno-2026.png" class="menu-thumb">
+                <h3>Capodanno 2026</h3>
+            </div>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- 🍣 ALL YOU CAN EAT -->
+        <!-- ========================= -->
+        <h2 class="menu-section-title">
+             All you
+            <span class="tag tag-orange">can eat</span>
+        </h2>
+
+        <div class="menu-grid">
+
+            <div class="menu-card" data-index="2">
+                <img src="../img/menu/all-you-can-eat.png" class="menu-thumb">
+                <h3>All You Can Eat €19.90</h3>
+            </div>
+
+            <div class="menu-card" data-index="3">
+                <img src="../img/menu/menu-pranzo-10.png" class="menu-thumb">
+                <h3>Pranzo da 10€</h3>
+            </div>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- 📅 MENÙ DELLA SETTIMANA -->
+        <!-- ========================= -->
+        <h2 class="menu-section-title">
+             Menù della
+            <span class="tag tag-orange">settimana</span>
+        </h2>
+        <div class="menu-grid">
+
+            <div class="menu-card" data-index="4">
+                <img src="../img/menu/settimana/menu-pranzo-lunedi.png" class="menu-thumb">
+                <h3>Menù pranzo Lunedì</h3>
+            </div>
+
+            <div class="menu-card" data-index="5">
+                <img src="../img/menu/settimana/menu-pranzo-martedi.png" class="menu-thumb">
+                <h3>Menù pranzo Martedì</h3>
+            </div>
+
+            <div class="menu-card" data-index="6">
+                <img src="../img/menu/settimana/menu-pranzo-mercoledi.png" class="menu-thumb">
+                <h3>Menù pranzo Mercoledì</h3>
+            </div>
+
+            <div class="menu-card" data-index="7">
+                <img src="../img/menu/settimana/menu-pranzo-giovedi.png" class="menu-thumb">
+                <h3>Menù pranzo Giovedì</h3>
+            </div>
+
+            <div class="menu-card" data-index="8">
+                <img src="../img/menu/settimana/menu-pranzo-venerdi.png" class="menu-thumb">
+                <h3>Menù pranzo Venerdì</h3>
+            </div>
+
+            <div class="menu-card" data-index="9">
+                <img src="../img/menu/settimana/menu-pranzo-sabato.png" class="menu-thumb">
+                <h3>Menù pranzo Sabato</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VIEWER FULLSCREEN -->
+    <div class="menu-viewer" id="menuViewer">
+        <div class="menu-viewer-backdrop"></div>
+
+        <div class="menu-viewer-content">
+            <button class="menu-viewer-close" id="menuViewerClose">&times;</button>
+
+            <button class="menu-viewer-arrow left" id="menuPrev">&#10094;</button>
+            <img id="menuViewerImage" src="">
+            <button class="menu-viewer-arrow right" id="menuNext">&#10095;</button>
+
+            <div class="menu-viewer-caption">
+                <h2 id="menuViewerTitle"></h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer"></footer>
+
+    <!-- SCRIPT -->
+    <script src="../assets/js/menu.js"></script>
+</body>
+</html>
+
+/* Gabriele Ciadamidaro */
+/* >^..^< */
