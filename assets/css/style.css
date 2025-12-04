@@ -1,0 +1,541 @@
+/* --------------------------
+   GLOBAL SETTINGS
+---------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    background: transparent;
+    transition: background-image 1s ease-in-out;
+}
+
+/* Dark mode automatica */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #eee;
+    }
+}
+
+/* Layer per sfondo con dissolvenza */
+.body-bg,
+.body-bg-next {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.body-bg-next {
+    opacity: 0;
+}
+/* --------------------------
+   NAVBAR
+---------------------------*/
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.35);
+    z-index: 1000;
+}
+
+.navbar img {
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links a:hover {
+    color: #e25111;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    padding: 10px 0;
+    border-radius: 8px;
+    min-width: 180px;
+    display: none;
+    flex-direction: column;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* --------------------------
+   HERO CAROUSEL
+---------------------------*/
+/* HERO CONTAINER FIX */
+.hero {
+    background: transparent;
+    transition: background-image 1s ease-in-out;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+}
+
+/* ----- SLIDES ----- */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: auto; /* o "smooth" */
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    animation: fade 15s infinite;
+}
+
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 5s; }
+.hero-slide:nth-child(3) { animation-delay: 10s; }
+
+
+.hero-slide.active {
+    opacity: 1;
+}
+/* ENTRA DAL BASSO CON ARRIVO PIÙ BASSO (NON ATACCATO IN ALTO) */
+.hero-text.enter {
+    opacity: 0;
+    transform: translateY(40px); /* entra da più in basso */
+}
+
+.hero-text.enter-active {
+    opacity: 1;
+    transform: translateY(10px); /* si ferma più in basso, perfetto per il contenuto */
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* ESCI VERSO IL BASSO */
+.hero-text.exit {
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.hero-text.exit-active {
+    opacity: 0;
+    transform: translateY(80px); /* esce ancora più giù */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* alignments */
+.hero-text.center {
+    position: absolute;
+    top: 53%; /* VALORE GIUSTO PER IL LOOK DELLO SCREENSHOT */
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center; /* perché nel tuo esempio è allineato a sinistra */
+}
+
+.hero-text.left {
+    position: absolute;
+    top: 53%;
+    left: 22%;
+    transform: translateY(-50%);
+    text-align: left;
+}
+
+.hero-text.right {
+    position: absolute;
+    top: 53%;
+    right: 22%;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.hero-text h1 {
+    font-size: 3rem; /* più grande */
+}
+
+.hero-text h2 {
+    font-size: 1.8rem;
+}
+
+.hero-text h3 {
+    font-size: 1.8rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+
+
+
+@keyframes fade {
+    0% {opacity: 0;}
+    10% {opacity: 1;}
+    30% {opacity: 1;}
+    40% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+/* --------------------------
+   FLOATING CENTER TITLE
+---------------------------*/
+
+.center-floating {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.45);
+    padding: 25px 45px;
+    border-radius: 18px;
+}
+
+.center-floating h1 {
+    color: white;
+    font-size: 46px;
+    letter-spacing: 1px;
+}
+
+.center-floating h2 {
+    margin-top: 10px;
+    color: #f5f5f5;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.center-floating h3 {
+    margin-top: 8px;
+    color: #e25111;
+    font-size: 20px;
+}
+
+/* --------------------------
+   CENTER FLOATING MENU STYLE
+---------------------------*/
+
+.center-menu {
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 1100px;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 35px 20px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.menu-item {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+/* Linea arancione sopra la voce attiva */
+.menu-item.active::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #ff5f2e;
+    border-radius: 3px;
+}
+
+
+/* Hover */
+.menu-item:hover {
+    color: #ff5f2e;
+}
+
+.info-banner {
+    position: absolute;   /* <— LO METTI QUI */
+    bottom: 0;            /* <— LO METTI QUI */
+    left: 0;              /* <— LO METTI QUI */
+    width: 100%;          /* <— LO METTI QUI */
+
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    /* Effetto vetro IDENTICO alla dropdown */
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.info-item a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.info-icon {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.4));
+}
+
+section {
+    background: transparent;
+    transition: background-image 1s ease-in-out;
+}
+
+
+@media (max-width: 768px) {
+    .center-menu {
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px 15px;
+    }
+
+    .menu-item {
+        font-size: 22px;
+    }
+
+    .menu-item.active::before {
+        top: -16px;
+        width: 40px;
+    }
+}
+
+/* --------------------------
+   FOOTER STYLE
+---------------------------*/
+
+.footer {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .6s ease, transform .6s ease;
+    pointer-events: none;
+
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(12px);
+
+    pointer-events: none; /* non cliccabile quando nascosto */
+}
+
+.footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* logo a sinistra */
+    align-items: flex-start;
+    padding-left: 0;    /* elimina il padding a sinistra */
+    gap: 60px;          /* spazio tra logo e contatti */
+}
+
+.footer-logo img {
+    width: 230px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.footer-contacts {
+    flex: 1;
+    margin-top: 10px;
+}
+
+.footer-title {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.footer-title::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 2px;
+    background: #ff5f2e;
+    margin-top: 8px;
+}
+
+.footer-contacts ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 18px;
+    line-height: 1.8;
+}
+
+.info-icon-footer {
+    width: 18px;
+    vertical-align: middle;
+    margin-right: 8px;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: #ffb86c;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+
+/* P.IVA sotto il logo */
+.footer-piva {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #ddd;
+    opacity: 0.8;
+}
+
+/* Spostamento orari verso destra */
+.footer-hours {
+    padding-left: 32px;
+}
+
+/* --- LINK DEL FOOTER (colore elegante + animazione) --- */
+.footer-link,
+.footer-link:link,
+.footer-link:visited,
+.footer-link:active,
+.footer-link:focus {
+    color: #e0e0e0 !important;     /* grigio chiaro elegante */
+    text-decoration: none !important;
+    font-weight: 500;
+    position: relative;
+    opacity: 0.9;
+    transition: color .3s ease, opacity .3s ease;
+}
+
+/* Hover colore arancione Kraken */
+.footer-link:hover {
+    color: #ff5f2e !important;
+    opacity: 1;
+}
+
+/* Effetto underline animato */
+.footer-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #ff5f2e;
+    transition: width .3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-title::after {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        font-size: 20px;
+    }
+}
+
+
+/* Gabriele Ciadamdiaro */
+/* >^..^< */
